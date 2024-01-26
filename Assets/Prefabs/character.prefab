@@ -53,14 +53,23 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 5.4965897
+      outSlope: 5.4965897
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5
+      time: 0.07077959
+      value: 0.38904637
+      inSlope: 4.444303
+      outSlope: 4.444303
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.4459656
       value: 1
       inSlope: 0
       outSlope: 0
@@ -69,10 +78,46 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
+      time: 0.70733464
+      value: 0.059638947
+      inSlope: -1.8978691
+      outSlope: -1.8978691
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.804668
+      value: 0.12846196
+      inSlope: 0.33634838
+      outSlope: 0.33634838
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.88832986
+      value: 0.019330435
+      inSlope: -0.743671
+      outSlope: -0.743671
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9502703
+      value: 0.052128933
+      inSlope: 0.49032995
+      outSlope: 0.49032995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -2
-      outSlope: -2
+      inSlope: -1.0482454
+      outSlope: -1.0482454
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -80,7 +125,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _jumpDuration: 0.5
+  _jumpDuration: 1
 --- !u!33 &7478685232327494192
 MeshFilter:
   m_ObjectHideFlags: 0
