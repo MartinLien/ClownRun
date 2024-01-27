@@ -41,7 +41,7 @@ public class CharacterController : MonoBehaviour
         {
             _visual.position = _originPosition + (Vector3.up * _jumpArc.Evaluate(timer / _jumpDuration.Variable));
 
-            if (timer >= _landingParticleTiming.Variable && !landingPlayed)
+            if (timer >= Mathf.Lerp(0, _jumpDuration.Variable, _landingParticleTiming.Variable) && !landingPlayed)
             {
                 landingPlayed = true;
                 _landingParticle.Play();

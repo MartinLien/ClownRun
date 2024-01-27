@@ -61,6 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351e46a34390c874e80a62b824329a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstaclePrefa: {fileID: 8243327919260143332, guid: 2b838574c5dc89241850effa8273e7dc, type: 3}
+  _obstaclePrefab: {fileID: 8243327919260143332, guid: 2b838574c5dc89241850effa8273e7dc, type: 3}
   _spawnInterval: {fileID: 11400000, guid: 4968269bbacd77b419a827e00fb50a29, type: 2}
   _obstacleSpeed: {fileID: 11400000, guid: 9be9fab138f5bcf489ad4998d15df06e, type: 2}
