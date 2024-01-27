@@ -28,6 +28,9 @@ public class Obstacle : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
             OnTrigger?.Invoke();
+            Destroy(this.gameObject);
+        }
     }
 }
