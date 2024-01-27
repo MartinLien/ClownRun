@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    [SerializeField] private Transform _visual = null;
     [SerializeField] private AnimationCurve _jumpArc = null;
     [SerializeField] private float _jumpDuration = 0.5f;
+    [SerializeField] private float _landingParticleTiming = 0.4f;
+
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem _jumpingParticle = null;
+    [SerializeField] private ParticleSystem _landingParticle = null;
 
     private bool _jumping = false;
 
@@ -13,7 +19,7 @@ public class CharacterController : MonoBehaviour
 
     private void Start()
     {
-        _originPosition = transform.position;
+        _originPosition = _visual.position;
     }
 
     private void Update()
@@ -27,15 +33,24 @@ public class CharacterController : MonoBehaviour
 
     private IEnumerator Jump()
     {
+        _jumpingParticle.Play();
+
+        bool landingPlayed = false;
         float timer = 0;
         while (timer < _jumpDuration)
         {
-            transform.position = _originPosition + (Vector3.up * _jumpArc.Evaluate(timer / _jumpDuration));
+            _visual.position = _originPosition + (Vector3.up * _jumpArc.Evaluate(timer / _jumpDuration));
+
+            if (timer >= _landingParticleTiming && !landingPlayed)
+            {
+                landingPlayed = true;
+                _landingParticle.Play();
+            }
 
             timer += Time.deltaTime;
             yield return null;
         }
-
+        
         _jumping = false;
     }
 }
