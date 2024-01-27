@@ -7,6 +7,7 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private Obstacle _obstaclePrefab = null;
     [SerializeField] private FloatVariable _spawnInterval = null;
     [SerializeField] private FloatVariable _obstacleSpeed = null;
+    [SerializeField] private List<Transform> _spawnPositions = new List<Transform>();
 
     private float _spawnTimer = 0;
 
@@ -29,7 +30,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        Obstacle newObstacle = Instantiate(_obstaclePrefab, transform);
+        Obstacle newObstacle = Instantiate(_obstaclePrefab, GetRandomSpawnPoint(), Quaternion.identity);
         newObstacle.Speed = _obstacleSpeed.Variable;
         newObstacle.OnTrigger += ObstacleTriggered;
     }
@@ -37,5 +38,11 @@ public class ObstacleSpawner : MonoBehaviour
     private void ObstacleTriggered()
     {
         OnObstacleTriggered?.Invoke();
+    }
+
+    private Vector3 GetRandomSpawnPoint()
+    {
+        int lane = Random.Range(0, 3);
+        return new Vector3(_spawnPositions[lane].position.x, 0.5f, transform.position.z);
     }
 }

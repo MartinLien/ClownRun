@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 897bafa7dbf1a6649a71e6b2eca2850b, type: 3}
-  m_Name: obstacle_spawn_interval
+  m_Script: {fileID: 11500000, guid: d4b3b9bf89e49c741acd6cebc5ef41f4, type: 3}
+  m_Name: current_lane
   m_EditorClassIdentifier: 
-  _variable: 0.5
+  _variable: 0

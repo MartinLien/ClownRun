@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897bafa7dbf1a6649a71e6b2eca2850b, type: 3}
   m_Name: landing_particle_timing
   m_EditorClassIdentifier: 
-  _variable: 0.8207853
+  _variable: 0.9513175

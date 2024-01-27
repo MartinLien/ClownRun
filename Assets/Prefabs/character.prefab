@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d71615a3d440244b17bacb73a6cd67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentLane: 1
+  _currentLane: {fileID: 11400000, guid: 7f66ce4e658667a4587c9cbf692dbb2f, type: 2}
   _lanePositions:
   - {fileID: 0}
   - {fileID: 0}

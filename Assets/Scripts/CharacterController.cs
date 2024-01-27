@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     public enum Lane { Left, Center, Right }
-    [SerializeField] private Lane _currentLane = Lane.Center;
+    [SerializeField] private LaneVariable _currentLane = null;
     [SerializeField] private List<Transform> _lanePositions = new List<Transform>();
 
     [SerializeField] private Transform _visual = null;
@@ -39,6 +39,9 @@ public class CharacterController : MonoBehaviour
     {
         _originPosition = _visual.localPosition;
 
+        _currentLane.Variable = Lane.Center;
+        ChangeLane(_currentLane.Variable);
+
         FindObjectOfType<ObstacleSpawner>().OnObstacleTriggered += Stunned;
     }
 
@@ -63,17 +66,17 @@ public class CharacterController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            _currentLane = (Lane)Mathf.Clamp((int)_currentLane - 1, 0, 2);
+            _currentLane.Variable = (Lane)Mathf.Clamp((int)_currentLane.Variable - 1, 0, 2);
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            _currentLane = (Lane)Mathf.Clamp((int)_currentLane + 1, 0, 2);
+            _currentLane.Variable = (Lane)Mathf.Clamp((int)_currentLane.Variable + 1, 0, 2);
         }
 
-        if (_currentLane != _prevLane)
+        if (_currentLane.Variable != _prevLane)
         {
-            ChangeLane(_currentLane);
-            _prevLane = _currentLane;
+            ChangeLane(_currentLane.Variable);
+            _prevLane = _currentLane.Variable;
         }
     }
 
