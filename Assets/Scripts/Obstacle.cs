@@ -8,9 +8,20 @@ public class Obstacle : MonoBehaviour
     public float Speed { set { _speed = value; } }
 
     public System.Action OnTrigger;
+    
+    private GroundScrolling _groundScrolling;
+    private ObstacleSpawner _obstacleSpawner;
 
-    private void Update()
+    void Start()
     {
+        _groundScrolling = FindObjectOfType<GroundScrolling>();
+        _obstacleSpawner = FindObjectOfType<ObstacleSpawner>();
+    }
+
+    void Update()
+    {
+        if (_groundScrolling is { ShouldSpawn: false } && _obstacleSpawner is { ShouldSpawn: false })
+            return;
         transform.position -= Vector3.forward * _speed * Time.deltaTime;
     }
 

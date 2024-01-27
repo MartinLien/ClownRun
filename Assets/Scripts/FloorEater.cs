@@ -19,6 +19,8 @@ public class FloorEater : MonoBehaviour
 
     void Update()
     {
+        if (!_killZoneController.ShouldEat && transform.position == _killZoneController.CurrentPosition)
+            return;
         if (_timer >= _groundScrolling.SpawnDelay)
             _timer = 0;
         transform.position = _killZoneController.CurrentPosition - Vector3.forward * _floorChompMoveCurve.Evaluate(_timer);

@@ -10,10 +10,14 @@ public class ObstacleSpawner : MonoBehaviour
 
     private float _spawnTimer = 0;
 
+    public bool ShouldSpawn = true;
+
     public System.Action OnObstacleTriggered;
 
     private void Update()
     {
+        if (!ShouldSpawn)
+            return;
         _spawnTimer += Time.deltaTime;
 
         if (_spawnTimer >= _spawnInterval.Variable)

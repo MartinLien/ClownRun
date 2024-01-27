@@ -14,10 +14,14 @@ public class GroundScrolling : MonoBehaviour
 
     private float _spawnTimer = 0;
 
+    public bool ShouldSpawn = true;
+
     public float SpawnDelay => _travelBeforeNextSpawn.Variable / _tileSpeed.Variable;
 
     private void Update()
     {
+        if (!ShouldSpawn)
+            return;
         _spawnTimer += Time.deltaTime;
 
         if (_spawnTimer >= SpawnDelay)
