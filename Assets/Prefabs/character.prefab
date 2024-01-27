@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 4043661520190168018}
   - component: {fileID: 4877952048293665450}
   - component: {fileID: 5395639481692748864}
-  - component: {fileID: 4512554255517710044}
   m_Layer: 7
   m_Name: shoo_visual_L
   m_TagString: Untagged
@@ -167,19 +166,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4512554255517710044
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2441681062143900787}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5558060159209977653
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +360,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d71615a3d440244b17bacb73a6cd67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentLane: 1
+  _lanePositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _visual: {fileID: 3287034129056293667}
   _jumpArc:
     serializedVersion: 2
@@ -381,15 +372,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 5.4965897
-      outSlope: 5.4965897
+      inSlope: 3.7331572
+      outSlope: 3.7331572
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.07077959
-      value: 0.38904637
+      time: 0.09505054
+      value: 0.3548386
       inSlope: 3.9151974
       outSlope: 3.9151974
       tangentMode: 0
@@ -397,7 +388,7 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.05476061
     - serializedVersion: 3
-      time: 0.6
+      time: 0.31943718
       value: 1
       inSlope: 0
       outSlope: 0
@@ -406,35 +397,71 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.7886218
-      value: 0.05432399
-      inSlope: -1.8978691
-      outSlope: -1.8978691
-      tangentMode: 0
+      time: 0.38942158
+      value: 0.97354364
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.8207853
+      time: 0.4410608
+      value: 0.9969543
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.49872065
+      value: 0.9761105
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.56365854
+      value: 0.99352336
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.61782324
+      value: 0.97490823
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.68380105
+      value: 0.9896554
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7504517
+      value: 0.91760635
+      inSlope: -2.824625
+      outSlope: -2.824625
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.95131755
       value: 0
-      inSlope: -0.1104998
-      outSlope: -0.1104998
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.8784798
-      value: 0.10359094
-      inSlope: 0.33634838
-      outSlope: 0.33634838
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.92319274
-      value: 0.0072917547
       inSlope: -0.743671
       outSlope: -0.743671
       tangentMode: 0
@@ -442,19 +469,19 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.96950114
-      value: 0.044103082
-      inSlope: 0.49032995
-      outSlope: 0.49032995
-      tangentMode: 0
+      time: 0.97975504
+      value: 0.027013239
+      inSlope: -0.19220161
+      outSlope: -0.19220161
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -1.4460566
-      outSlope: -1.4460566
+      inSlope: -1.3343195
+      outSlope: -1.3343195
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -464,6 +491,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   _jumpDuration: {fileID: 11400000, guid: e423ea3720260bb4394f747925fe327e, type: 2}
   _landingParticleTiming: {fileID: 11400000, guid: 5b5d27de06af88145b7fb5972318b255, type: 2}
+  _stunnedDuration: {fileID: 11400000, guid: b2f7bbc883b81eb41a1e12f813b9ea14, type: 2}
   _jumpingParticle: {fileID: 8343275000243496217}
   _landingParticle: {fileID: 2778293436366347650}
   _runningCurve:
@@ -608,6 +636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: obstacle_collision_particles
       objectReference: {fileID: 0}
+    - target: {fileID: 235477207110734876, guid: 8f0ea9db6540fc04c889718be8586204, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 235477207110734877, guid: 8f0ea9db6540fc04c889718be8586204, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -656,13 +688,29 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 235477207348565217, guid: 8f0ea9db6540fc04c889718be8586204, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 469169545780570378, guid: 8f0ea9db6540fc04c889718be8586204, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3918309584450506860, guid: 8f0ea9db6540fc04c889718be8586204, type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3918309584450506860, guid: 8f0ea9db6540fc04c889718be8586204, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7895756619771910870, guid: 8f0ea9db6540fc04c889718be8586204, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895756619771910870, guid: 8f0ea9db6540fc04c889718be8586204, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f0ea9db6540fc04c889718be8586204, type: 3}

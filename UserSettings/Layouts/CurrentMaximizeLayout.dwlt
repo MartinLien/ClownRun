@@ -88,7 +88,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -430,9 +430,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.28164506, y: 1.0889289, z: 0.37007505}
+    m_Target: {x: 0.3169036, y: 2.0804899, z: 3.6522157}
     speed: 2
-    m_Value: {x: -0.28164506, y: 1.0889289, z: 0.37007505}
+    m_Value: {x: 0.3169036, y: 2.0804899, z: 3.6522157}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -479,13 +479,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.08106394, y: 0.9113322, z: -0.2166496, w: -0.3408322}
+    m_Target: {x: -0.11653571, y: 0.8834355, z: -0.3115082, w: -0.33039513}
     speed: 2
-    m_Value: {x: -0.08105578, y: 0.9112405, z: -0.2166278, w: -0.3407979}
+    m_Value: {x: -0.1165219, y: 0.8833308, z: -0.3114713, w: -0.330356}
   m_Size:
-    m_Target: 3.3757865
+    m_Target: 9.040519
     speed: 2
-    m_Value: 3.3757865
+    m_Value: 9.040519
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 268d0000
     m_LastClickedInstanceID: 36134
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -749,8 +749,8 @@ MonoBehaviour:
     y: 0
     width: 364.8
     height: 278
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}
@@ -780,7 +780,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 43710
+  controlID: 65251
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -800,8 +800,8 @@ MonoBehaviour:
     y: 0
     width: 311.20007
     height: 513.6
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -884,8 +884,8 @@ MonoBehaviour:
     y: 513.6
     width: 311.20007
     height: 217.20001
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
