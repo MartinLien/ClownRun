@@ -6,8 +6,8 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField] private Transform _visual = null;
     [SerializeField] private AnimationCurve _jumpArc = null;
-    [SerializeField] private float _jumpDuration = 0.5f;
-    [SerializeField] private float _landingParticleTiming = 0.4f;
+    [SerializeField] private FloatVariable _jumpDuration = null;
+    [SerializeField] private FloatVariable _landingParticleTiming = null;
 
     [Header("Particles")]
     [SerializeField] private ParticleSystem _jumpingParticle = null;
@@ -37,11 +37,11 @@ public class CharacterController : MonoBehaviour
 
         bool landingPlayed = false;
         float timer = 0;
-        while (timer < _jumpDuration)
+        while (timer < _jumpDuration.Variable)
         {
-            _visual.position = _originPosition + (Vector3.up * _jumpArc.Evaluate(timer / _jumpDuration));
+            _visual.position = _originPosition + (Vector3.up * _jumpArc.Evaluate(timer / _jumpDuration.Variable));
 
-            if (timer >= _landingParticleTiming && !landingPlayed)
+            if (timer >= _landingParticleTiming.Variable && !landingPlayed)
             {
                 landingPlayed = true;
                 _landingParticle.Play();

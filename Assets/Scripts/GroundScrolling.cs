@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GroundScrolling : MonoBehaviour
 {
-    [SerializeField] private float _travelBeforeNextSpawn = 5f;
-    [SerializeField] private float _tileSpeed = 10f;
+    [SerializeField] private FloatVariable _travelBeforeNextSpawn = null;
+    [SerializeField] private FloatVariable _tileSpeed = null;
     [SerializeField] private Transform _spawnPoint = null;
     [SerializeField] private GroundTile _groundPrefab = null;
 
@@ -14,7 +14,7 @@ public class GroundScrolling : MonoBehaviour
 
     private float _spawnTimer = 0;
 
-    public float SpawnDelay => _travelBeforeNextSpawn / _tileSpeed;
+    public float SpawnDelay => _travelBeforeNextSpawn.Variable / _tileSpeed.Variable;
 
     private void Update()
     {
@@ -30,7 +30,7 @@ public class GroundScrolling : MonoBehaviour
     private void Spawn()
     {
         GroundTile newTile = Instantiate(_groundPrefab, _spawnPoint);
-        newTile.Speed = _tileSpeed;
+        newTile.Speed = _tileSpeed.Variable;
         _spawnedObjects.Add(newTile);
     }
 }

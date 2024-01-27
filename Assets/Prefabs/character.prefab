@@ -264,8 +264,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _jumpDuration: 1
-  _landingParticleTiming: 0.6344872
+  _jumpDuration: {fileID: 11400000, guid: e423ea3720260bb4394f747925fe327e, type: 2}
+  _landingParticleTiming: {fileID: 11400000, guid: 5b5d27de06af88145b7fb5972318b255, type: 2}
   _jumpingParticle: {fileID: 8343275000243496217}
   _landingParticle: {fileID: 2778293436366347650}
 --- !u!1001 &6161070733272068176
