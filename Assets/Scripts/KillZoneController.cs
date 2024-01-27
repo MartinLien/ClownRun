@@ -129,6 +129,8 @@ public class KillZoneController : MonoBehaviour
         }
         _obstacleSpawner.ShouldSpawn = false;
         _groundScrolling.ShouldSpawn = false;
+
+        FindObjectOfType<KillScreen>().PlayKillScreen();
     }
 
     void TriggerMove()
