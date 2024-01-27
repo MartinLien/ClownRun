@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7810676950480360501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7810676950480360500}
+  - component: {fileID: 7810676950480360507}
+  m_Layer: 0
+  m_Name: roof_spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7810676950480360500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7810676950480360501}
+  m_LocalRotation: {x: 0.70710677, y: 0.7071069, z: 0.0000004109317, w: 0.00000041093176}
+  m_LocalPosition: {x: -0, y: 14.9, z: 20}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 90}
+--- !u!114 &7810676950480360507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7810676950480360501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36bb462f40dca1e4db1578494c6367dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _travelBeforeNextSpawn: {fileID: 11400000, guid: 1c5a1ed1a5dc3564dab69e6ac59965e0, type: 2}
+  _tileSpeed: {fileID: 11400000, guid: bc82aaff026b7a544a5022e352b79cad, type: 2}
+  _spawnPoint: {fileID: 7810676950480360500}
+  _wallPrefabs:
+  - {fileID: -1785397200038800458, guid: f077b4c19348d884ba5cbe1a987ad7de, type: 3}
+  - {fileID: -1785397200038800458, guid: 8c8f6949b6b534e438756a69bd6eefdd, type: 3}
+  _alternating: 0
+  ShouldSpawn: 1

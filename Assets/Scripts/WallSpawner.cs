@@ -44,7 +44,11 @@ public class WallSpawner : MonoBehaviour
     {
         if (!_alternating)
         {
-            return _wallPrefabs[0];
+            ++_spawnIndex;
+            if (_spawnIndex >= _wallPrefabs.Count)
+                _spawnIndex = 0;
+
+            return _wallPrefabs[_spawnIndex];
         }
         else
         {
