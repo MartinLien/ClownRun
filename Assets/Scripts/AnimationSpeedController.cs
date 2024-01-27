@@ -4,22 +4,39 @@ using UnityEngine;
 
 public class AnimationSpeedController : MonoBehaviour
 {
+    [Header("Speeds")]
+    [SerializeField] private FloatVariable _normal;
+    [SerializeField] private FloatVariable _fast;
+    [SerializeField] private FloatVariable _faster;
+
+    [Header("Anim")]
     [SerializeField] private Animator _anim = null;
-    [SerializeField] private FloatVariable _speed = null;
 
-    private float _prevSpeed = 0f;
+    private GameplayAudioState _state = GameplayAudioState.Normal;
 
-    private void Update()
+    public void SetState(GameplayAudioState state)
     {
-        if (_speed.Variable != _prevSpeed)
+        if (_state == state)
+            return;
+
+        _state = state;
+        switch (_state)
         {
-            _prevSpeed = _speed.Variable;
-            UpdateAnimSpeed();
+            case GameplayAudioState.Normal:
+                UpdateAnimSpeed(_normal.Variable);
+                break;
+            case GameplayAudioState.Fast:
+                UpdateAnimSpeed(_fast.Variable);
+                break;
+            case GameplayAudioState.Faster:
+                UpdateAnimSpeed(_faster.Variable);
+                break;
         }
     }
 
-    private void UpdateAnimSpeed()
+    private void UpdateAnimSpeed(float speed)
     {
-        _anim.speed = _speed.Variable;
+        _anim.SetFloat("speedMultiplier", speed);
+        _anim.Update(Time.deltaTime);
     }
 }

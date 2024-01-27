@@ -8,6 +8,7 @@ public class KillZoneController : MonoBehaviour
     private Coroutine _resetMovingRoutine = null;
 
     private GameplayAudioController _gameplayAudioController = null;
+    private AnimationSpeedController _animationSpeedController = null;
 
     private ObstacleSpawner _obstacleSpawner = null;
     private GroundScrolling _groundScrolling = null;
@@ -30,11 +31,20 @@ public class KillZoneController : MonoBehaviour
                 //Utils.ForceCrash(ForcedCrashCategory.FatalError);
             }
             if (distance > _fasterSongDistance)
+            {
                 _gameplayAudioController.SetState(GameplayAudioState.Faster);
+                _animationSpeedController.SetState(GameplayAudioState.Faster);
+            }
             else if (distance > _fastSongDistance)
+            {
                 _gameplayAudioController.SetState(GameplayAudioState.Fast);
+                _animationSpeedController.SetState(GameplayAudioState.Fast);
+            }
             else
+            {
                 _gameplayAudioController.SetState(GameplayAudioState.Normal);
+                _animationSpeedController.SetState(GameplayAudioState.Normal);
+            }
         }
     }
 
@@ -57,6 +67,7 @@ public class KillZoneController : MonoBehaviour
     void Awake()
     {
         _gameplayAudioController = FindObjectOfType<GameplayAudioController>();
+        _animationSpeedController = FindObjectOfType<AnimationSpeedController>();
         _obstacleSpawner = FindObjectOfType<ObstacleSpawner>();
         _groundScrolling = FindObjectOfType<GroundScrolling>();
     }

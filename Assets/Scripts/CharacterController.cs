@@ -21,6 +21,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private ParticleSystem _landingParticle = null;
 
     [Header("Animations")]
+    [SerializeField] private Animator _anim = null;
     [SerializeField] private AnimationCurve _runningCurve = null;
     [SerializeField] private FloatVariable _runCycleTimer = null;
 
@@ -58,6 +59,8 @@ public class CharacterController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && !_jumping)
         {
+            _anim.SetTrigger("Jump");
+
             _timer = 0;
             _running = false;
             _jumping = true;
@@ -82,6 +85,8 @@ public class CharacterController : MonoBehaviour
 
     private void Stunned()
     {
+        _anim.SetTrigger("Stun");
+
         _stunTimer = 0;
         _stunned = true;
     }
