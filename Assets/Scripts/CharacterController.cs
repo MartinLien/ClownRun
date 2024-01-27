@@ -13,7 +13,14 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private ParticleSystem _jumpingParticle = null;
     [SerializeField] private ParticleSystem _landingParticle = null;
 
+    [Header("Animations")]
+    [SerializeField] private AnimationCurve _runningCurve = null;
+    [SerializeField] private FloatVariable _runCycleTimer = null;
+
+    private bool _running = true;
     private bool _jumping = false;
+
+    private float _timer = 0;
 
     private Vector3 _originPosition = Vector3.zero;
 
@@ -24,11 +31,25 @@ public class CharacterController : MonoBehaviour
 
     private void Update()
     {
+        if (_running)
+            RunningBehaviour();
+
         if (Input.GetKeyDown(KeyCode.Space) && !_jumping)
         {
+            _timer = 0;
+            _running = false;
             _jumping = true;
             StartCoroutine(Jump());
         }
+    }
+
+    private void RunningBehaviour()
+    {
+        _visual.position = _originPosition + Vector3.up * _runningCurve.Evaluate(_timer / _runCycleTimer.Variable);
+
+        _timer += Time.deltaTime;
+        if (_timer >= _runCycleTimer.Variable)
+            _timer = 0;
     }
 
     private IEnumerator Jump()
@@ -50,7 +71,8 @@ public class CharacterController : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-        
+
+        _running = true;
         _jumping = false;
     }
 }
