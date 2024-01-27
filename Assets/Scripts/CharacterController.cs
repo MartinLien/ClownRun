@@ -25,6 +25,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private AnimationCurve _runningCurve = null;
     [SerializeField] private FloatVariable _runCycleTimer = null;
 
+    [SerializeField] private AudioSource _hitSoundSource = null;
+
     private Lane _prevLane = Lane.Center;
     private bool _running = true;
     private bool _jumping = false;
@@ -86,6 +88,10 @@ public class CharacterController : MonoBehaviour
     private void Stunned()
     {
         _anim.SetTrigger("Stun");
+        
+        _hitSoundSource.pitch = Random.Range(0.8f, 1.2f);
+        _hitSoundSource.time = 0;
+        _hitSoundSource.Play();
 
         _stunTimer = 0;
         _stunned = true;

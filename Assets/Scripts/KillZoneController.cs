@@ -14,8 +14,7 @@ public class KillZoneController : MonoBehaviour
     private GroundScrolling _groundScrolling = null;
 
     private Vector3 _originPosition = Vector3.zero;
-    private Vector3 _currentOriginPosition = Vector3.zero;
-
+    
     private Vector3 CurrentOriginPosition
     {
         get => _currentOriginPosition;
@@ -47,6 +46,7 @@ public class KillZoneController : MonoBehaviour
             }
         }
     }
+    private Vector3 _currentOriginPosition { get; set; } = Vector3.zero;
 
     public Vector3 CurrentPosition { get; private set; }
     public bool ShouldEat = true;
@@ -77,7 +77,7 @@ public class KillZoneController : MonoBehaviour
     {
         _originPosition = transform.position;
         CurrentPosition = _originPosition;
-        CurrentOriginPosition = CurrentPosition;
+        _currentOriginPosition = CurrentPosition;
         _obstacleSpawner.OnObstacleTriggered += TriggerMove;
     }
 
@@ -93,20 +93,49 @@ public class KillZoneController : MonoBehaviour
 
         if (_lastMove >= _moveDelay)
         {
-            _resetMovingRoutine = StartCoroutine(ResetStep(CurrentOriginPosition - _moveLength, _moveSpeed));
+            _resetMovingRoutine = StartCoroutine(ResetStep(_currentOriginPosition - _moveLength, _moveSpeed));
         }
 
-        if (!_laughterMoving && !_resetMoving && _originPosition.z < CurrentOriginPosition.z)
+        if (!_laughterMoving && !_resetMoving && _originPosition.z < _currentOriginPosition.z)
         {
             _lastMove += Time.deltaTime;
         }
+    }
+
+    void CheckDistance(Vector3 targetPosition)
+    {
+        float distance = 35 + targetPosition.z;
+        if (distance >= 35)
+        {
+            StartCoroutine(EndAnimator());
+            //Utils.ForceCrash(ForcedCrashCategory.FatalError);
+        }
+        if (distance > _fasterSongDistance)
+            _gameplayAudioController.SetState(GameplayAudioState.Faster);
+        else if (distance > _fastSongDistance)
+            _gameplayAudioController.SetState(GameplayAudioState.Fast);
+        else
+            _gameplayAudioController.SetState(GameplayAudioState.Normal);
+    }
+
+    IEnumerator EndAnimator()
+    {
+        ShouldEat = false;
+        float timer = 0;
+        while (timer < .3)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        _obstacleSpawner.ShouldSpawn = false;
+        _groundScrolling.ShouldSpawn = false;
     }
 
     void TriggerMove()
     {
         if (_resetMovingRoutine != null)
             StopCoroutine(_resetMovingRoutine);
-        StartCoroutine(LaughterMove(CurrentOriginPosition + _moveLength, _moveSpeed));
+        StartCoroutine(LaughterMove(_currentOriginPosition + _moveLength, _moveSpeed));
     }
 
     IEnumerator LaughterMove(Vector3 targetPosition, float duration)
@@ -114,12 +143,13 @@ public class KillZoneController : MonoBehaviour
         _laughterMoving = true;
         _lastMove = 0;
         float timer = 0;
+        CheckDistance(targetPosition);
         while (timer < duration)
         {
             LinearMove(targetPosition, duration, ref timer);
             yield return null;
         }
-        CurrentOriginPosition = targetPosition;
+        _currentOriginPosition = targetPosition;
         _laughterMoving = false;
     }
 
@@ -128,18 +158,19 @@ public class KillZoneController : MonoBehaviour
         _resetMoving = true;
         _lastMove = 0;
         float timer = 0;
+        CheckDistance(targetPosition);
         while (timer < duration)
         {
             LinearMove(targetPosition, duration, ref timer);
             yield return null;
         }
-        CurrentOriginPosition = targetPosition;
+        _currentOriginPosition = targetPosition;
         _resetMoving = false;
     }
 
     void LinearMove(Vector3 targetPosition, float duration, ref float timer)
     {
-        CurrentPosition = Vector3.Lerp(CurrentOriginPosition, targetPosition, timer / duration);
+        CurrentPosition = Vector3.Lerp(_currentOriginPosition, targetPosition, timer / duration);
         timer += Time.deltaTime;
     }
 }
