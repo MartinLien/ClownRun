@@ -49,6 +49,7 @@ MonoBehaviour:
   _tileSpeed: {fileID: 11400000, guid: bc82aaff026b7a544a5022e352b79cad, type: 2}
   _spawnPoint: {fileID: 3527735017345462392}
   _groundPrefab: {fileID: 804250269740914311, guid: 9158c64a876e19745b3673058c18260a, type: 3}
+  ShouldSpawn: 1
 --- !u!114 &4107944753407540325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,4 +64,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstaclePrefab: {fileID: 8243327919260143332, guid: 2b838574c5dc89241850effa8273e7dc, type: 3}
   _spawnInterval: {fileID: 11400000, guid: 4968269bbacd77b419a827e00fb50a29, type: 2}
-  _obstacleSpeed: {fileID: 11400000, guid: 9be9fab138f5bcf489ad4998d15df06e, type: 2}
+  _obstacleSpeed: {fileID: 11400000, guid: bc82aaff026b7a544a5022e352b79cad, type: 2}
+  _spawnPositions: []
+  ShouldSpawn: 1
