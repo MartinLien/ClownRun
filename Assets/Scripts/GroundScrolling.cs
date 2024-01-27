@@ -14,11 +14,13 @@ public class GroundScrolling : MonoBehaviour
 
     private float _spawnTimer = 0;
 
+    public float SpawnDelay => _travelBeforeNextSpawn / _tileSpeed;
+
     private void Update()
     {
         _spawnTimer += Time.deltaTime;
 
-        if (_spawnTimer >= (_travelBeforeNextSpawn / _tileSpeed))
+        if (_spawnTimer >= SpawnDelay)
         {
             _spawnTimer = 0;
             Spawn();
