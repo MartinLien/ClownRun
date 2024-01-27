@@ -8,8 +8,20 @@ public class LifeTime : MonoBehaviour
 
     private float _timer = 0;
 
+    private GroundScrolling _groundScrolling;
+    private ObstacleSpawner _obstacleSpawner;
+
+    void Start()
+    {
+        _groundScrolling = FindObjectOfType<GroundScrolling>();
+        _obstacleSpawner = FindObjectOfType<ObstacleSpawner>();
+    }
+
     void Update()
     {
+        if (_groundScrolling is { ShouldSpawn: false } && _obstacleSpawner is { ShouldSpawn: false })
+            return;
+
         if (_timer >= _lifetime)
             Destroy(this.gameObject);
 
