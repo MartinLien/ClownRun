@@ -115,6 +115,7 @@ public class KillZoneController : MonoBehaviour
         _obstacleSpawner.ShouldSpawn = false;
         _groundScrolling.ShouldSpawn = false;
 
+        FindObjectOfType<CharacterController>().Killed();
         FindObjectOfType<KillScreen>().PlayKillScreen();
     }
 

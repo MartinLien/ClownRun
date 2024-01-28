@@ -16,6 +16,13 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        StartCoroutine(StartGameAnim());
+    }
+
+    private IEnumerator StartGameAnim()
+    {
+        FindObjectOfType<Curtains>().Enter();
+        yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene(1);
     }
 

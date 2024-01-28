@@ -50,7 +50,7 @@ public class CharacterController : MonoBehaviour
 
     private void Update()
     {
-        if (_running)
+        if (_running && !_stunned)
             RunningBehaviour();
 
         if (_stunned)
@@ -135,6 +135,18 @@ public class CharacterController : MonoBehaviour
 
         _running = true;
         _jumping = false;
+    }
+
+    public void Killed()
+    {
+        StartCoroutine(KilledAnim());
+    }
+
+    private IEnumerator KilledAnim()
+    {
+        _anim.SetTrigger("Stun");
+        yield return new WaitForSeconds(0.5f);
+        _anim.enabled = false;
     }
 
     private void ChangeLane(Lane newLane)
