@@ -14,38 +14,8 @@ public class KillZoneController : MonoBehaviour
     private GroundScrolling _groundScrolling = null;
 
     private Vector3 _originPosition = Vector3.zero;
-    
-    private Vector3 CurrentOriginPosition
-    {
-        get => _currentOriginPosition;
-        set
-        {
-            _currentOriginPosition = value;
-            float distance = 35 + value.z;
-            if (distance >= 35)
-            {
-                _obstacleSpawner.ShouldSpawn = false;
-                _groundScrolling.ShouldSpawn = false;
-                ShouldEat = false;
-                //Utils.ForceCrash(ForcedCrashCategory.FatalError);
-            }
-            if (distance > _fasterSongDistance)
-            {
-                _gameplayAudioController.SetState(GameplayAudioState.Faster);
-            }
-            else if (distance > _fastSongDistance)
-            {
-                _gameplayAudioController.SetState(GameplayAudioState.Fast);
-                _animationSpeedController.SetState(GameplayAudioState.Fast);
-            }
-            else
-            {
-                _gameplayAudioController.SetState(GameplayAudioState.Normal);
-                _animationSpeedController.SetState(GameplayAudioState.Normal);
-            }
-        }
-    }
-    private Vector3 _currentOriginPosition { get; set; } = Vector3.zero;
+
+    private Vector3 _currentOriginPosition = Vector3.zero;
 
     public Vector3 CurrentPosition { get; private set; }
     public bool ShouldEat = true;
