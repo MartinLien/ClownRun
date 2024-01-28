@@ -20,7 +20,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.75
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -42,11 +42,11 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 1
+  m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8deab5a8c905c6a4088a4a182379f8b9, type: 2}
+  m_Motion: {fileID: 6165553400957861818, guid: 910c6eaa9df29cc43ae47d33ea7e2810, type: 3}
   m_Tag: 
   m_SpeedParameter: speedMultiplier
   m_MirrorParameter: 
@@ -111,7 +111,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3350827878471821085}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 7538529376162225189}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -120,7 +121,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -4791504522942941401, guid: 8ebba31f01ef2f84c94af91ca4f19300, type: 3}
+  m_Motion: {fileID: 6759086803382991731, guid: 5b2a7571d8f81214796c00398d597ccd, type: 3}
   m_Tag: 
   m_SpeedParameter: speedMultiplier
   m_MirrorParameter: 
@@ -147,7 +148,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7a6d401077bad8a44846600ac5910bb7, type: 2}
+  m_Motion: {fileID: 6165553400957861818, guid: 8aeef4453736bf3429ec0234db0373f6, type: 3}
   m_Tag: 
   m_SpeedParameter: speedMultiplier
   m_MirrorParameter: 
@@ -244,3 +245,15 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 80, y: 110, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -3142094226410958064}
+--- !u!114 &7538529376162225189
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8325e014469b6944d9b580a606a7a991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

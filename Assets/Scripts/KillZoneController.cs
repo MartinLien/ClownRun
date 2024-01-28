@@ -65,6 +65,8 @@ public class KillZoneController : MonoBehaviour
 
     [SerializeField] private AudioSource _laughSound = null;
 
+    [SerializeField] private Animator _anim = null;
+
     [Header("Particles")]
     [SerializeField] private List<ParticleSystem> _particles = new List<ParticleSystem>();
 
@@ -151,6 +153,10 @@ public class KillZoneController : MonoBehaviour
         if (_resetMovingRoutine != null)
             StopCoroutine(_resetMovingRoutine);
         StartCoroutine(LaughterMove(_currentOriginPosition + _moveLength, _moveSpeed));
+
+        _laughSound.Play();
+        TriggerParticles();
+        _anim.SetTrigger("Laugh");
     }
 
     private void TriggerParticles()
@@ -161,9 +167,6 @@ public class KillZoneController : MonoBehaviour
 
     IEnumerator LaughterMove(Vector3 targetPosition, float duration)
     {
-        TriggerParticles();
-        _laughSound.Play();
-
         _laughterMoving = true;
         _lastMove = 0;
         float timer = 0;
