@@ -7,6 +7,8 @@ public class Obstacle : MonoBehaviour
     private float _speed = 1f;
     public float Speed { set { _speed = value; } }
 
+    public GameObject _visual = null;
+
     public System.Action OnTrigger;
     
     private GroundScrolling _groundScrolling;
@@ -30,7 +32,7 @@ public class Obstacle : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             OnTrigger?.Invoke();
-            Destroy(this.gameObject);
+            _visual.SetActive(false);
         }
     }
 }

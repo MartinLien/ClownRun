@@ -32,7 +32,6 @@ public class KillZoneController : MonoBehaviour
             if (distance > _fasterSongDistance)
             {
                 _gameplayAudioController.SetState(GameplayAudioState.Faster);
-                _animationSpeedController.SetState(GameplayAudioState.Faster);
             }
             else if (distance > _fastSongDistance)
             {
@@ -63,6 +62,11 @@ public class KillZoneController : MonoBehaviour
 
     [SerializeField] private float _fastSongDistance = 10f;
     [SerializeField] private float _fasterSongDistance = 20f;
+
+    [SerializeField] private AudioSource _laughSound = null;
+
+    [Header("Particles")]
+    [SerializeField] private List<ParticleSystem> _particles = new List<ParticleSystem>();
 
     void Awake()
     {
@@ -111,11 +115,20 @@ public class KillZoneController : MonoBehaviour
             //Utils.ForceCrash(ForcedCrashCategory.FatalError);
         }
         if (distance > _fasterSongDistance)
+        {
             _gameplayAudioController.SetState(GameplayAudioState.Faster);
+            _animationSpeedController.SetState(GameplayAudioState.Faster);
+        }
         else if (distance > _fastSongDistance)
+        {
             _gameplayAudioController.SetState(GameplayAudioState.Fast);
+            _animationSpeedController.SetState(GameplayAudioState.Fast);
+        }
         else
+        {
             _gameplayAudioController.SetState(GameplayAudioState.Normal);
+            _animationSpeedController.SetState(GameplayAudioState.Normal);
+        }
     }
 
     IEnumerator EndAnimator()
@@ -140,8 +153,17 @@ public class KillZoneController : MonoBehaviour
         StartCoroutine(LaughterMove(_currentOriginPosition + _moveLength, _moveSpeed));
     }
 
+    private void TriggerParticles()
+    {
+        foreach (var particle in _particles)
+            particle.Play();
+    }
+
     IEnumerator LaughterMove(Vector3 targetPosition, float duration)
     {
+        TriggerParticles();
+        _laughSound.Play();
+
         _laughterMoving = true;
         _lastMove = 0;
         float timer = 0;

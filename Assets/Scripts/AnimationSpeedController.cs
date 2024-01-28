@@ -37,6 +37,5 @@ public class AnimationSpeedController : MonoBehaviour
     private void UpdateAnimSpeed(float speed)
     {
         _anim.SetFloat("speedMultiplier", speed);
-        _anim.Update(Time.deltaTime);
     }
 }

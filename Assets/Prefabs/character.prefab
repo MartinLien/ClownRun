@@ -234,7 +234,6 @@ GameObject:
   - component: {fileID: 7478685232327494195}
   - component: {fileID: 1328451363221717064}
   - component: {fileID: 4950810644441058630}
-  - component: {fileID: 4440682134567298334}
   m_Layer: 7
   m_Name: character
   m_TagString: Untagged
@@ -406,7 +405,7 @@ MonoBehaviour:
   _stunnedDuration: {fileID: 11400000, guid: b2f7bbc883b81eb41a1e12f813b9ea14, type: 2}
   _jumpingParticle: {fileID: 8343275000243496217}
   _landingParticle: {fileID: 2778293436366347650}
-  _anim: {fileID: 4440682134567298334}
+  _anim: {fileID: 828727806}
   _runningCurve:
     serializedVersion: 2
     m_Curve:
@@ -475,28 +474,7 @@ MonoBehaviour:
   _normal: {fileID: 11400000, guid: 6b94154d5f4621f49bc78463e641dce9, type: 2}
   _fast: {fileID: 11400000, guid: 27e4c22aff20c394a9ab6b2d1390955a, type: 2}
   _faster: {fileID: 11400000, guid: 1c4e8aab77e9f504e9bea49bff0e1a84, type: 2}
-  _anim: {fileID: 4440682134567298334}
---- !u!95 &4440682134567298334
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7478685232327494159}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3204726dce2700f4b96bc4a426081d4f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  _anim: {fileID: 828727806}
 --- !u!1001 &6161070733272068176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -811,7 +789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ebba31f01ef2f84c94af91ca4f19300, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -0.0000043257105
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ebba31f01ef2f84c94af91ca4f19300, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
